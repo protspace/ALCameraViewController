@@ -92,7 +92,12 @@ open class CameraViewController: UIViewController {
 
     let cameraOverlay : CropOverlay = {
         let cameraOverlay = CropOverlay()
-        cameraOverlay.translatesAutoresizingMaskIntoConstraints = false
+        let screenHeight = UIScreen.main.bounds.size.height
+        let screenWidth = UIScreen.main.bounds.size.width
+        let overlayWidth = screenWidth - 10
+        let overlayHeight = overlayWidth / 1.586
+        cameraOverlay.frame = CGRect(x: 5, y: screenHeight/2 - overlayHeight/2, width: overlayWidth, height: overlayHeight)
+        
         return cameraOverlay
     }()
     
